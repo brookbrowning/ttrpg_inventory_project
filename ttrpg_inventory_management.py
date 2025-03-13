@@ -1,9 +1,17 @@
+# Author: Brook Browning
+# GitHub username: brookbrowning
 # Description: This is an inventory management project (to be used when playing a ttrpg, like Dnd).
 # Goals: Create inventory objects that can be customized, stored, and recalled for quick reference during gameplay
 
 
 import inventory_types
 import inventory_functions
+
+my_inventory = {
+'Attack': [{'name' : 'trident', 'type' : 'weapon', 'damage': '3d6', 'range' : 'melee'},
+           {'name' : 'shocking grasp', 'type' : 'spell', 'damage': '1d8', 'range' : 'touch'},],
+'Item' : [{'name': 'fishing pole', 'type' : 'junk'}, {'name': 'eye of anubis', 'type' : 'treasure'}]
+}
 
 
 # Introduction
@@ -19,6 +27,6 @@ print("What would you like to do?\n Type 's' to store an item,\n Type 'r' to ret
 user_input = input("I would like to: ").lower()
 
 if user_input == 's':
-
+    inventory_functions.store()
 
 

@@ -1,3 +1,5 @@
+import inventory_types
+
 
 def store():
     print("What would you like to store?")
@@ -12,10 +14,14 @@ def store():
 
 def info(type):
     name = input("What is the name of your object/spell?:")
-
+    #Check name in current inventory
+    # if already exists, overwrite/update?
     if type == 'w' or type == 's':
-
+        new_attack = inventory_types.Attack
+        # update attack category
     else:
+        # update item category
+        new_item = inventory_types.Item
 
 
 
