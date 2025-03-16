@@ -1,5 +1,1 @@
-{
-'Attack': [{'name' : 'trident', 'type' : 'weapon', 'damage': '3d6', 'range' : 'melee'},
-           {'name' : 'shocking grasp', 'type' : 'spell', 'damage': '1d8', 'range' : 'touch'}]
-'Item' : [{'name': 'fishing pole', 'type' : 'junk'}, {'name': 'eye of anubis', 'type' : 'treasure'}]
-}
+[{"name": "trident", "type": "weapon", "damage": "3d6", "range": "melee", "description": null}, {"name": "shocking grasp", "type": "spell", "damage": "1d8", "range": "touch", "description": null}]
