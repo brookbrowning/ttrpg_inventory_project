@@ -10,7 +10,7 @@ import csv
 #     writer.writeheader()
 #     writer.writerows(my_inventory)
 
-
+#f
 def read_inv():
     with open('inventory.json', 'r') as infile:
         inventory = json.load(infile)
