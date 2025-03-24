@@ -12,22 +12,26 @@ import csv
 
 #f
 def read_inv():
-    with open('inventory.json', 'r') as infile:
-        inventory = json.load(infile)
-    return inventory
+    inv = []
+    with open('inventory.csv', 'r') as infile:
+        reader = csv.DictReader(infile)
+        for row in reader:
+            inv.append(row['name'])
+    return inv
 
 
 def is_inventory_empty():
-    file_size = len('inventory.json')
+    file_size = len('inventory.csv')
     if file_size == 0:
         return True
     else:
         return False
 
+
 def name_exists(name):
     my_inventory = read_inv()
     for val in my_inventory:
-        if val["name"] == name:
+        if val == name:
             return True
         else:
             return False
