@@ -1,8 +1,8 @@
 import csv
 
 
-# my_inventory = [{'name': 'trident', 'type': 'weapon', 'damage': '3d6', 'range': 'melee', 'description' : None},
-#                {'name': 'shocking grasp', 'type': 'spell', 'damage': '1d8', 'range': 'touch', 'description': None}, ]
+# my_inventory = [{'name': 'trident', 'type': 'weapon', 'damage': '3d6', 'range': 'melee', 'description' : 'none'},
+#                {'name': 'shocking grasp', 'type': 'spell', 'damage': '1d8', 'range': 'touch', 'description': 'none'}, ]
 #
 # with open('inventory.csv', 'w', newline='') as csvfile:
 #     fieldnames = ['name', 'type', 'damage', 'range', 'description']
@@ -10,7 +10,7 @@ import csv
 #     writer.writeheader()
 #     writer.writerows(my_inventory)
 
-#f
+
 def read_inv():
     inv = []
     with open('inventory.csv', 'r') as infile:
@@ -39,8 +39,17 @@ def name_exists(name):
         return False
 
 def overwrite(name):
-    print("overwriting")
-
+    inv = read_inv()
+    new_inv = []
+    for val in inv:
+        if val['name'] != name:
+            new_inv.append(val)
+    with open('inventory.csv', 'w', newline='') as infile:
+        fieldnames = ['name', 'type', 'damage', 'range', 'description']
+        writer = csv.DictWriter(infile, fieldnames= fieldnames)
+        writer.writeheader()
+        writer.writerows(new_inv)
+    add_new_item(name)
 
 def view_item(name):
     my_inventory = read_inv()
@@ -97,8 +106,8 @@ def continue_app():
         else:
             return False
     else:
-        print("Invalid choice.")
-        continue_app()
+        print("Invalid choice. Continuing app use")
+        return False
 
 def choose_action():
     correct_response = False

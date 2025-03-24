@@ -35,7 +35,7 @@ else:
                     over_wr_choice = input("This name already exists. Would you like to overwrite? (y/n): ").lower()
                     if over_wr_choice == "y":
                         overwrite(name)
-                        print("Item info updated:")
+                        print("\nItem info updated:")
                         view_item(name)
                         print(spacing)
                         exit_app = continue_app()
@@ -56,6 +56,7 @@ else:
                     print("You added:")
                     view_item(name)
                     print(spacing)
+                    exit_app = continue_app()
                 else:
                     print("\nThe item name entered does not exist. Please try again.", spacing)
         elif function_choice == 'i':
@@ -67,4 +68,4 @@ else:
             exit_app = True
 
 
-#F
+
