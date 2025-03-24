@@ -12,6 +12,7 @@ import csv
 
 
 def read_inv():
+    """Opens inventory.csv and returns the inventory as a list of dictionaries"""
     inv = []
     with open('inventory.csv', 'r') as infile:
         reader = csv.DictReader(infile)
@@ -21,6 +22,9 @@ def read_inv():
 
 
 def is_inventory_empty():
+    """Determines file size of inventory.csv to determine if file is empty.
+    In ttrpg_inventory_management.py, this prompts the user to store an item
+    (as they cannot retrieve or view an empty inventory)"""
     file_size = len('inventory.csv')
     if file_size == 0:
         return True
@@ -29,6 +33,8 @@ def is_inventory_empty():
 
 
 def name_exists(name):
+    """Calls read_inv() to pull a list of inventory. Iterates through inventory
+    to determine if the inputted name already exists in the inventory."""
     my_inventory = read_inv()
     names_list = []
     for val in my_inventory:
@@ -38,7 +44,9 @@ def name_exists(name):
     else:
         return False
 
-def overwrite(name):
+
+def delete_item(name):
+    """Pulls and iterates through inventory to remove given item"""
     inv = read_inv()
     new_inv = []
     for val in inv:
@@ -46,9 +54,15 @@ def overwrite(name):
             new_inv.append(val)
     with open('inventory.csv', 'w', newline='') as infile:
         fieldnames = ['name', 'type', 'damage', 'range', 'description']
-        writer = csv.DictWriter(infile, fieldnames= fieldnames)
+        writer = csv.DictWriter(infile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(new_inv)
+
+
+def overwrite(name):
+    """Calls delete_item() to remove given item from inventory. Then calls function
+    to add 'new' item of the same name"""
+    delete_item(name)
     add_new_item(name)
 
 def view_item(name):
