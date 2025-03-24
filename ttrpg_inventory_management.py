@@ -22,7 +22,7 @@ if is_empty is True:
 
     if action == 'y':
         new_name = input("Enter the name of your new item/spell: ").lower()
-        add_new_item(name=new_name)
+        add_new_item(item_name=new_name)
 else:
     exit_app = False
     while exit_app is False:
@@ -38,23 +38,31 @@ else:
                         print("Item info updated:")
                         view_item(name)
                         print(spacing)
+                        exit_app = continue_app()
                 else:
                     print("This item's attributes are: ")
                     view_item(name)
-                    update_choice = input("Would you like to update this item?")
+                    print(spacing)
+                    update_choice = input("Would you like to update this item?(y/n): ").lower()
                     if update_choice == "y":
                         overwrite(name)
                         print("Item info updated:")
                         view_item(name)
+                    print(spacing)
+                    exit_app = continue_app()
             else:
                 if function_choice == "s":
                     add_new_item(name)
+                    print("You added:")
+                    view_item(name)
+                    print(spacing)
                 else:
                     print("\nThe item name entered does not exist. Please try again.", spacing)
         elif function_choice == 'i':
             print("Your current inventory: ")
             view_inventory()
             print(spacing)
+            exit_app = continue_app()
         else:
             exit_app = True
 

@@ -1,3 +1,4 @@
 name,type,damage,range,description
-trident,weapon,3d6,melee,
-shocking grasp,spell,1d8,touch,
+trident,weapon,3d6,melee,a brilliant blue-green trident of unknown origin
+shocking grasp,spell,1d8,touch,cantrip dealing lightning damage (prevents rxns until next turn)
+yo-yo,weapon,1d4,4 ft,bright red plastic yo-yo
