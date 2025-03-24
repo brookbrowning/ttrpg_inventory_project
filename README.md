@@ -7,4 +7,5 @@ Inventory management project for ttrpgs:
   - View a list of inventory
 - Utilizing JSON, list/dictionary comprehension
 - See Flow Chart Below:
-![Inventory Project Plan](https://github.com/user-attachments/assets/131ff84a-e389-4662-bfff-e8ad254f696c)
+![Copy of Inventory Project Plan](https://github.com/user-attachments/assets/6c486317-e289-44e6-a845-ff7e245ae697)
+
