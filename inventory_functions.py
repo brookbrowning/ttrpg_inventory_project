@@ -1,6 +1,5 @@
 import csv
 
-
 # my_inventory = [{'name': 'trident', 'type': 'weapon', 'damage': '3d6', 'range': 'melee', 'description' : 'none'},
 #                {'name': 'shocking grasp', 'type': 'spell', 'damage': '1d8', 'range': 'touch', 'description': 'none'}, ]
 #
@@ -132,10 +131,10 @@ def choose_action():
     """Prompts user to choose an action. Loops through options (in main file) if an invalid answer is chosen"""
     correct_response = False
     while correct_response is False:
-        print("What would you like to do?\n - Type 's' to store an item,\n - Type 'r' to retrieve an item,\n "
-                           "- Type 'i' to view a list of inventory,\n - Or type 'x' to exit\n")
+        print("What would you like to do?\n - Type 's' to store an item\n - Type 'r' to retrieve an item\n "
+                           "- Type 'i' to view a list of inventory\n - Type 'd' to delete an item\n - Or type 'x' to exit\n")
         user_input = input("I would like to: ").lower()
-        options = ['s', 'r', 'i', 'x']
+        options = ['s', 'r', 'i', 'd', 'x']
         if user_input in options:
             correct_response = True
             return user_input

@@ -63,9 +63,35 @@ else:
             print("Your current inventory: ")
             view_inventory()
             print(spacing)
+            update_choice = input("Would you like to update an item?(y/n): ").lower()
+            if update_choice == 'y':
+                item_name = input("Enter the name of the item you want to update: ")
+                already_exists = name_exists(item_name)
+                if already_exists is True:
+                    overwrite(item_name)
+                else:
+                    print("Name entered is not in list.")
             exit_app = continue_app()
         else:
-            exit_app = True
+            print('This is your current inventory:')
+            view_inventory()
+            item_name = input('Enter the name of the item you want to delete: ').lower()
+            already_exists = name_exists(item_name)
+            print(f"\nYou entered {item_name.title()}")
+            if already_exists is True:
+                confirmation = input(f"{item_name.title()} will be permanently deleted. Are you sure you want to delete {item_name.title()}? (y/n): ")
+                confirmation_choices = ['y', 'n']
+                if confirmation in confirmation_choices:
+                    if confirmation == 'y':
+                        delete_item(item_name)
+                        print(f"{item_name.title()} has been deleted.")
+                    else:
+                        print(f"{item_name.title()} will not be deleted.")
+                else:
+                    print(f"'{confirmation}' is not a valid option. Please try again.")
+            else:
+                print("That name is not in your inventory. Please try again.")
+            exit_app = continue_app()
 
 
 
