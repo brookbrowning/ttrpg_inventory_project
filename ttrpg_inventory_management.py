@@ -1,7 +1,7 @@
 # Author: Brook Browning
 # GitHub username: brookbrowning
-# Description: This is an inventory management project (to be used when playing a ttrpg, like Dnd).
-# Goals: Create inventory objects that can be customized, stored, and recalled for quick reference during gameplay
+# Description: This is a text-based inventory management project (to be used when playing a ttrpg, like Dnd).
+# Goals: Create inventory (utilizing a csv file) that can be customized, stored, and recalled for quick reference during gameplay
 
 from inventory_functions import *
 

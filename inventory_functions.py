@@ -66,6 +66,7 @@ def overwrite(name):
     add_new_item(name)
 
 def view_item(name):
+    """Pulls information for a particular item and prints key:value pairs"""
     my_inventory = read_inv()
     for index, entry in enumerate(my_inventory):
         if entry['name'] == name:
@@ -75,13 +76,15 @@ def view_item(name):
 
 
 def view_inventory():
+    """Prints inventory with index+1 in front of it"""
     my_inventory = read_inv()
     for index, entry in enumerate(my_inventory):
         print(index+1, entry['name'].title())
 
 
 def object_type():
-    """This function prompts the user to determine a 'type' for their object, which determines which attributes it has"""
+    """This function prompts the user to determine a 'type'
+    for their object for consistency when adding items to inventory"""
     print("Enter the item type.")
     inv_type = input(" Type 'w' for weapon\n Type 's' for spell\n Type 't' for treasure\n "
                      "Or type 'u' for useless piece of crap: ").lower()
@@ -101,6 +104,7 @@ def object_type():
 
 
 def add_new_item(item_name):
+    """Prompts user for item attributes and appends item to the csv file"""
     item_type = object_type()
     damage = input("Enter the amount of damage (or enter 'none'): ").lower()
     item_range = input("Enter the damage range (or enter 'none'): ").lower()
@@ -112,6 +116,7 @@ def add_new_item(item_name):
 
 
 def continue_app():
+    """Function returns True or False to exit the app more efficiently (without beginning another loop)"""
     exit_app = input("Would you like to exit the app? (y/n): ").lower()
     answers = ['y', 'n']
     if exit_app in answers:
@@ -124,6 +129,7 @@ def continue_app():
         return False
 
 def choose_action():
+    """Prompts user to choose an action. Loops through options (in main file) if an invalid answer is chosen"""
     correct_response = False
     while correct_response is False:
         print("What would you like to do?\n - Type 's' to store an item,\n - Type 'r' to retrieve an item,\n "
